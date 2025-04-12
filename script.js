@@ -87,9 +87,37 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Adicionar evento para o button cadastrar
     document.querySelector("#cadastrar").addEventListener("click", (event) => {
         event.preventDefault();
+
+        // Validações para os campos
+        const validar = (() => {
+            if ((() => 
+                nome.value === "" || portas.value <= 0
+            )()) {
+                return false;
+            }
+        
+            if ((() => 
+                militar.checked && (blindagem.value <= 0 || municao.value <= 0)
+            )()) {
+                return false;
+            }
+        
+            return true;
+        })(); 
+
+        if (!validar) {
+            alert("Preencha todos os campos!");
+            return;
+        }
         
         normal.checked
             ? new Normal (nome.value, portas.value, blindagem, municao)
             : new Militar(nome.value, portas.value, blindagem, municao);
+
+            nome.value = "";
+            portas.value = "";
+            blindagem.value = "";
+            municao.value = "";
+            mudarEstado();
     });
 });
