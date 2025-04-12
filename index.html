@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Carros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container-principal">
+        <div class="container-input">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome">
+        </div>
+        <div class="container-input">
+            <label for="idade">Portas</label>
+            <input type="number" id="portas">
+        </div>
+        <div class="container-input">
+            <label for="blindagem">Blindagem</label>
+            <input type="number" id="blindagem">
+        </div>
+        <div class="container-input">
+            <label for="municao">Munição</label>
+            <input type="number" id="municao">
+        </div>
+        <div class="container-input">
+            <label for="mili">Tipo</label>
+
+            <div class="militar">
+                <input type="radio" id="militar" name="mili">
+                <label for="militar">Militar</label>
+            </div>
+            
+            <div class="militar">
+                <input type="radio" id="normal" name="mili" checked>
+                <label for="normal">Normal</label>
+            </div>
+        </div>
+        <button id="cadastrar">Cadastrar</button>
+    </div>
+    <div id="container-resultado">
+        <!-- Container que vai ser adicionados os carros cadastrados -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

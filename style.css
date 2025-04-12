@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container-principal {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 320px;
+}
+
+.container-input {
+    margin-bottom: 15px;
+    margin-right: 20px;
+}
+
+.container-input label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+}
+
+.container-input input[type="text"],
+.container-input input[type="number"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.militar {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.militar input {
+    margin-right: 8px;
+}
+
+#cadastrar {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#cadastrar:hover {
+    background-color: #45a049;
+}
+
+#container-resultado {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.novaPessoa {
+    background-color: #ffffff;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-left: 5px solid #4CAF50;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    font-size: 14px;
+    color: #444;
+}
