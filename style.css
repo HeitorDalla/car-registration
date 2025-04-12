@@ -46,7 +46,7 @@ body {
     margin-right: 8px;
 }
 
-#cadastrar {
+#cadastrar, #remover {
     width: 100%;
     padding: 10px;
     background-color: #4CAF50;
@@ -58,8 +58,17 @@ body {
     transition: background-color 0.3s ease;
 }
 
+#remover {
+    margin-top: 10px;
+    background-color: rgb(248, 50, 50);
+}
+
 #cadastrar:hover {
     background-color: #45a049;
+}
+
+#remover:hover {
+    background-color: rgb(226, 38, 38);
 }
 
 #container-resultado {

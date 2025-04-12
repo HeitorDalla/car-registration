@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     normal.addEventListener("change", mudarEstado);
     militar.addEventListener("change", mudarEstado);
 
-    // Adicionar evento para o button cadastrar
+    // Evento para o button cadastrar
     document.querySelector("#cadastrar").addEventListener("click", (event) => {
         event.preventDefault();
 
@@ -120,4 +120,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             municao.value = "";
             mudarEstado();
     });
+
+    // Evento para button remover carro
+    document.querySelector("#remover")
 });
