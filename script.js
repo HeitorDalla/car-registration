@@ -14,6 +14,7 @@ let carros = [];
 class Carro {
     constructor (nome, portas) {
         (() => {
+            // Adicionar o carro ao array carros
             carros.push({
                 nome: nome,
                 portas: portas
@@ -31,9 +32,7 @@ class Carro {
                 document.querySelector("#container-resultado").appendChild(newElement);
             })();
 
-            document.querySelector("#nome").value = '';
-            document.querySelector("#portas").value = '';
-            
+            limparCampos();
         })();
     }
 };
@@ -41,6 +40,13 @@ class Carro {
 class Normal extends Carro {
     constructor (nome, portas, blindagem, municao) {
         super (nome, portas)
+        
+        // Adicionar o carro ao array carros
+        carros.push({ 
+            nome: nome,
+            portas: portas
+        });
+
         blindagem.disabled = true,
         municao.disabled = true
     }
@@ -49,6 +55,15 @@ class Normal extends Carro {
 class Militar extends Carro {
     constructor (nome, portas, blindagem, municao) {
         super (nome, portas);
+
+        // Adicionar o carro ao array carros
+        carros.push({ 
+            nome: nome,
+            portas: portas,
+            blindagem: blindagem.value,
+            municao: municao.value
+        });
+
         blindagem.disabled = false;
         municao.disabled = false;
 
@@ -60,7 +75,19 @@ class Militar extends Carro {
             Blindagem: ${blindagem.value} |
             Munição: ${municao.value}
         `;
+
+        limparCampos();
     }
+};
+
+// Função para limpar campos
+function limparCampos () {
+   nome.value = '';
+   portas.value = '';
+   blindagem.value = '';
+   municao.value = '';
+
+   nome.focus();
 };
 
 // Função para atualizar estado dos inputs de blindagem e muniçao
@@ -78,6 +105,8 @@ function mudarEstado () {
 document.addEventListener("DOMContentLoaded", (event) => {
     event.preventDefault();
 
+    limparCampos();
+
     mudarEstado();
 
     // Adicionando eventos para mudar o estado quando clicado em cima do input
@@ -85,7 +114,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     militar.addEventListener("change", mudarEstado);
 
     // Evento para o button cadastrar
-    document.querySelector("#cadastrar").addEventListener("click", (event) => {
+    const cadastrar = document.querySelector("#cadastrar");
+    cadastrar.addEventListener("click", (event) => {
         event.preventDefault();
 
         // Validações para os campos
@@ -113,14 +143,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
         normal.checked
             ? new Normal (nome.value, portas.value, blindagem, municao)
             : new Militar(nome.value, portas.value, blindagem, municao);
-
-            nome.value = "";
-            portas.value = "";
-            blindagem.value = "";
-            municao.value = "";
-            mudarEstado();
     });
 
     // Evento para button remover carro
-    document.querySelector("#remover")
+    const remover = document.querySelector("#remover");
+    remover.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        // Verificar se existe algum carro cadastrado
+        if (carros.length > 0) {
+            remover.style.display = 'block';
+        }
+
+    })
 });
