@@ -23,14 +23,15 @@ class Carro {
                 Portas: ${portas}
             `;
 
+            // Evento para a implementação da lógica de selecionar um carro
             newElement.addEventListener("click", (event) => {
                 event.stopPropagation();
 
                 document.querySelectorAll(".novoCarro").forEach((carro) => {
-                    carro.style.backgroundColor = "";
+                    carro.classList.remove("selecionado");
                 });
-
-                newElement.style.backgroundColor = "#dbeafe";
+                
+                newElement.classList.add("selecionado");
             });
 
             containerResultado.appendChild(newElement);
@@ -157,6 +158,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     remover.addEventListener("click", (event) => {
         event.preventDefault();
 
-        
+        const selecionado = [...document.querySelectorAll(".selecionado")][0];
+        containerResultado.removeChild(selecionado);
     })
 });

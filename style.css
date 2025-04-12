@@ -88,3 +88,7 @@ body {
     color: #444;
     cursor: pointer;
 }
+
+.selecionado {
+    background-color: #dbeafe;
+}
