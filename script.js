@@ -1,5 +1,7 @@
 "use strict";
 
+const containerResultado = document.querySelector("#container-resultado");
+
 const nome = document.querySelector("#nome");
 const portas = document.querySelector("#portas");
 const blindagem = document.querySelector("#blindagem");
@@ -14,24 +16,24 @@ let carros = [];
 class Carro {
     constructor (nome, portas) {
         (() => {
-            // Adicionar o carro ao array carros
-            carros.push({
-                nome: nome,
-                portas: portas
+            const newElement = document.createElement("div");
+            newElement.setAttribute("class", "novoCarro");
+            newElement.innerHTML = `
+                Nome: ${nome} |
+                Portas: ${portas}
+            `;
+
+            newElement.addEventListener("click", (event) => {
+                event.stopPropagation();
+
+                document.querySelectorAll(".novoCarro").forEach((carro) => {
+                    carro.style.backgroundColor = "";
+                });
+
+                newElement.style.backgroundColor = "#dbeafe";
             });
 
-            (() => { 
-                const novoCarro = carros[carros.length - 1];
-
-                const newElement = document.createElement("div");
-                newElement.setAttribute("class", "novaPessoa");
-                newElement.innerHTML = `
-                    Nome: ${novoCarro.nome} |
-                    Portas: ${novoCarro.portas}
-                `;
-                document.querySelector("#container-resultado").appendChild(newElement);
-            })();
-
+            containerResultado.appendChild(newElement);
             limparCampos();
         })();
     }
@@ -67,7 +69,7 @@ class Militar extends Carro {
         blindagem.disabled = false;
         municao.disabled = false;
 
-        const ultimoCarro = document.querySelectorAll(".novaPessoa");
+        const ultimoCarro = document.querySelectorAll(".novoCarro");
         const carro = ultimoCarro[ultimoCarro.length - 1];
         carro.innerHTML = `
             Nome: ${nome} |
@@ -143,6 +145,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
         normal.checked
             ? new Normal (nome.value, portas.value, blindagem, municao)
             : new Militar(nome.value, portas.value, blindagem, municao);
+        
+        // Verificar se existe algum carro cadastrado
+        if (carros.length > 0) {
+            remover.style.display = 'block';
+        }
     });
 
     // Evento para button remover carro
@@ -150,10 +157,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     remover.addEventListener("click", (event) => {
         event.preventDefault();
 
-        // Verificar se existe algum carro cadastrado
-        if (carros.length > 0) {
-            remover.style.display = 'block';
-        }
-
+        
     })
 });
