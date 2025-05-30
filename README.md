@@ -51,3 +51,6 @@ Você pode:
 - 👨‍💼 Criado por **Heitor Giussani Dalla Villa**  
 - 📧 E-mail: [heitorvillavilla@gmail.com](mailto:heitorvillavilla@gmail.com)  
 - 💼 LinkedIn: [linkedin.com/in/heitordallavilla](https://www.linkedin.com/in/heitordallavilla)
+
+- ## Observações Finais
+Projeto inspirado no <a href="https://www.youtube.com/watch?v=E4DBTqgxHGM&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T">Curso de javascript</a>
